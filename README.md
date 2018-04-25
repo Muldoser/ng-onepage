@@ -1,27 +1,60 @@
 # NgOnepage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+A simple Angular starting point for onepagers.
 
-## Development server
+## Package manager
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+In this project we use [yarn](https://yarnpkg.com/en/) to manage the node modules. If you rather use good 'ole [npm](https://www.npmjs.com/), you need to change some things in the package.json and use `npm install` instead of `yarn`. 
 
-## Code scaffolding
+## Get started
+> This Angular project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+> 
+> ```bash
+> ## Used to create this project
+> $ ng new ng-onepage -it -p op --routing -si --style scss -v
+> ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+# Development server
+# For a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+$ ng serve
+# Or
+$ yarn start
 
-## Build
+# Code scaffolding
+# To generate a new component.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+$ ng generate component component-name
+# You can also use
+$ ng generate directive|pipe|service|class|guard|interface|enum|module
 
-## Running unit tests
+# Build
+# To build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+$ ng build
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Running unit tests
+# To execute the unit tests via Karma.
+$ ng test
 
-## Running end-to-end tests
+# Running end-to-end tests
+# To execute the end-to-end tests via Protractor.
+$ ng e2e 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+# Further help
+# To get more help on the Angular CLI use
+$ ng help
 
-## Further help
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### More info
+* [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* [Karma](https://karma-runner.github.io)
+* [Protractor](http://www.protractortest.org/)
+
+## Next steps
+
+* Menu component
+* Header component
+* Section component
+* Footer component
+* Smooth scroll
