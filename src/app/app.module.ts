@@ -4,21 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ContainerModule } from '../pages/container.module';
-import { HomePageModule } from '../pages/home/home.module';
-
-const pageModules = [
-  HomePageModule,
-  ContainerModule
-];
+import { OpComponentsModule } from '../shared/components/op-components.module';
+import { PagesModule } from '../pages/pages.module';
 
 @NgModule({
   bootstrap: [AppComponent],
   declarations: [AppComponent],
   imports: [
-    ...pageModules,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    OpComponentsModule,
+    PagesModule
   ],
   providers: []
 })
