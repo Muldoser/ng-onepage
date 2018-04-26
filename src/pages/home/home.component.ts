@@ -6,7 +6,12 @@ import { Component } from '@angular/core';
   template: `
   <op-header> Header </op-header>
 
-  Home page content
+  <op-section>
+    Home page content, section 1
+  </op-section>
+  <op-section>
+    Home page content, section 2
+  </op-section>
   `
 })
 export class HomePageComponent {
