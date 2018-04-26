@@ -12,6 +12,10 @@ import { Component } from '@angular/core';
   <op-section>
     Home page content, section 2
   </op-section>
+
+  <op-footer>
+    Footer
+  </op-footer>
   `
 })
 export class HomePageComponent {
