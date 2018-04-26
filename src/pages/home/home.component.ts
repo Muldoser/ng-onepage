@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
   selector: 'op-home',
   styleUrls: ['./home.component.scss'],
   template: `
-    <p>
-      home works!
-    </p>
+  <op-header> Header </op-header>
+
+  Home page content
   `
 })
 export class HomePageComponent {
