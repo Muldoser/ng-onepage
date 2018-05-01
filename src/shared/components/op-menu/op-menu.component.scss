@@ -1,3 +1,18 @@
+@import 'op-variables';
+
 :host {
-  display: block;
+  @include flex(row nowrap, stretch, center);
+  @include transition-padding-bottom-top;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $op-menu-height;
+  padding: 0;
+
+
+  @media(min-width:992px) {
+    @include transition-padding-bottom-top;
+    padding: 25px 0;
+  }
 }

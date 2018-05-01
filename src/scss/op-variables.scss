@@ -1,30 +1,4 @@
-/*******************
- * Color variables *
- /******************/
-$color1: #0F1F38;
-$color2: #8E7970;
-$color3: #F55449;
-$color4: #1B4B5A;
-$font-color1: #FFFFFF;
-
-/******************
- * Size variables *
- /*****************/
-$menu-height: 40px;
-
- /*****************
- * Font variables *
- /****************/
-@mixin default-font () {
-  font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
-}
-
-/*****************
- * Useful mixins *
- *****************/
- @mixin flex($flow: 'row nowrap', $justify: 'center', $align: 'center') {
-  display: flex;
-  flex-flow: $flow;
-  align-items: $align;
-  justify-content: $justify;
-}
+@import "colors";
+@import "fonts";
+@import "sizes";
+@import "mixins";

@@ -1,3 +1,6 @@
+@import 'op-variables';
+
 :host {
-  display: block;
+  @include flex(row nowrap, center, center);
+  height: 80vh;
 }

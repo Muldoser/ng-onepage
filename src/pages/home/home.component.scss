@@ -1,0 +1,9 @@
+@import "op-variables";
+
+:host {
+  display: block;
+
+  > op-section {
+    height: $op-section-height;
+  }
+}
