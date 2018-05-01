@@ -2,6 +2,12 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "declaration": false,
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["shared/components/*"],
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["scss/*"],
+    },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [

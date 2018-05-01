@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HomePageComponent } from './home.component';
-import { OpComponentsModule } from '../../shared/components/op-components.module';
+import { OpComponentsModule } from '@components/op-components.module';
 
 const components = [
   HomePageComponent
