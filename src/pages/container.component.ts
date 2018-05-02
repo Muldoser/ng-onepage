@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'op-container',
   styleUrls: ['./container.component.scss'],
   template: `
-  <op-menu>Menu bar</op-menu>
+  <op-menu>{{ 'App.Title' | translate }}</op-menu>
   <router-outlet></router-outlet>
   `
 })

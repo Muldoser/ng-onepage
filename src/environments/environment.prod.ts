@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  defaultLanguage: 'en-US',
+  production: true,
+  supportedLanguages: ['en-US', 'nl-BE']
 };
