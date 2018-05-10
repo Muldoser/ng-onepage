@@ -1,0 +1,24 @@
+{
+  "App": {
+    "Title": "Ng Onepage"
+  },
+  "Menu": {
+    "Services": "Services",
+    "Portfolio": "Portfolio",
+    "About": "About",
+    "Team": "Team",
+    "Contact": "Contact"
+  },
+  "Header": {
+    "Welcome": "Welcome on the Ng Onepage!"
+  },
+  "Example1": {
+    "Title": "Section 1 example"
+  },
+  "Example2": {
+    "Title": "Section 2 example"
+  },
+  "Footer": {
+    "Copyright": "Copyright...?"
+  }
+}

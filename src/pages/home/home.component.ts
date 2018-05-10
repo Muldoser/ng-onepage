@@ -4,17 +4,17 @@ import { Component } from '@angular/core';
   selector: 'op-home',
   styleUrls: ['./home.component.scss'],
   template: `
-  <op-header> Header </op-header>
+  <op-banner> {{ 'Header.Welcome' | translate }} </op-banner>
 
   <op-section>
-    Home page content, section 1
+    {{ 'Example1.Title' | translate }}
   </op-section>
   <op-section>
-    Home page content, section 2
+  {{ 'Example2.Title' | translate }}
   </op-section>
 
   <op-footer>
-    Footer
+  {{ 'Footer.Copyright' | translate }}
   </op-footer>
   `
 })
