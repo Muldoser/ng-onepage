@@ -5,10 +5,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./container.component.scss'],
   template: `
   <op-header>
-    {{ 'App.Title' | translate }}
+    <op-title>{{ 'App.Title' | translate }}</op-title>
 
     <op-menu>
-    Menu items here
+      <op-menu-item>Home</op-menu-item>
+      <op-menu-item>About</op-menu-item>
     </op-menu>
   </op-header>
   <router-outlet></router-outlet>

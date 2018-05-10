@@ -1,7 +1,46 @@
 @import 'op-variables';
 
+@mixin menuSmall () {
+  #op-menu-bars {
+    display: block;
+    padding: 1em;
+  }
+
+  > .op-menu-content {
+    //Basic layout and positioning
+    @include flex(column nowrap, flex-start, stretch);
+    background-color: inherit;
+    position: absolute;
+    top: $op-header-height;
+    left: 0;
+    right: 0;
+
+    // Open/close transition
+    max-height: 0;
+    overflow: hidden;
+    @include transition-max-height();
+
+    &.op-menu-open {
+      // Open/close transition
+      max-height: 100px;
+      @include transition-max-height();
+    }
+  }
+}
+
+@mixin menuLarge () {
+  #op-menu-bars { display: none; }
+
+  > .op-menu-content {
+    @include flex(row nowrap, flex-end, center);
+  }
+}
+
 :host {
-  @include flex(row nowrap, stretch, center);
-  width: 100%;
-  padding: 0;
+  @include flex(row nowrap, flex-end, center);
+  @include menuLarge;
+
+  @media (max-width: 600px) {
+    @include menuSmall;
+  }
 }

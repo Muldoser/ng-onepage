@@ -4,3 +4,15 @@
 @mixin default-font () {
   font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
 }
+
+@mixin font-XL { font-size: 40px; }
+
+@mixin font-L { font-size: 20px; }
+
+@mixin font-M { font-size: 17px; }
+
+@mixin font-S { font-size: 15px; }
+
+@mixin font-XS { font-size: 13px; }
+
+@mixin font-XXS { font-size: 11px; }
