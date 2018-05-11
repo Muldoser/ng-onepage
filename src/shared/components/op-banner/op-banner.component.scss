@@ -2,5 +2,5 @@
 
 :host {
   @include flex(row nowrap, center, center);
-  height: 80vh;
+  height: $op-banner-height;
 }

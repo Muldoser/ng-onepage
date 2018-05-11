@@ -2,4 +2,7 @@
 
 :host {
   @include font-L;
+  &:hover {
+    cursor: pointer;
+  }
 }

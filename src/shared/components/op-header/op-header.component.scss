@@ -8,7 +8,7 @@
   left: 0;
   width: 100%;
   height: $op-header-height;
-  padding: 25px 0;
+  padding: $op-header-padding 0;
 
   @media(max-width: 600px) {
     @include transition-padding-bottom-top;

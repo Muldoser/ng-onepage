@@ -1,3 +1,10 @@
+@import 'op-variables';
+
 :host {
   display: block;
+  padding-top: $op-header-height  + $op-header-padding;
+  
+  @media(max-width: 600px) {
+    padding-top: $op-header-height;
+  }
 }

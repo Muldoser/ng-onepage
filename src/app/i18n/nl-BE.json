@@ -3,6 +3,8 @@
     "Title": "Ng Onepage"
   },
   "Menu": {
+    "Example1": "Voorbeeld 1",
+    "Example2": "Voorbeeld 2",
     "Services": "Services",
     "Portfolio": "Portfolio",
     "About": "Over",
