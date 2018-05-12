@@ -1,5 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Inject, OnDestroy } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute  } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
+import { EasingLogic, PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
+
+const myEasing: EasingLogic = {
+  ease: (t: number, b: number, c: number, d: number): number => {
+    // Sinusoidal easing in
+    /* return -c * Math.cos(t / d * (Math.PI / 2)) + c + b; */
+
+    // Quadratic easing in
+    /* t /= d;
+    return c * t * t + b; */
+
+    // Quintic easing in
+    t /= d;
+    return c * t * t * t * t * t + b;
+  }
+};
 
 @Component({
   selector: 'op-home',
@@ -20,23 +38,39 @@ import { ActivatedRoute  } from '@angular/router';
   </op-footer>
   `
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnDestroy {
   public pageTop: string = 'pageTop';
-  constructor (private route: ActivatedRoute) {
-    this.route.fragment.subscribe((fragment) => {
-      console.log('fragment: ', fragment);
-      this.scrollTo(fragment);
-    })
+
+  private fragmentSub: Subscription;
+
+  constructor (
+    private route: ActivatedRoute,
+    private pageScrollService: PageScrollService,
+    @Inject(DOCUMENT) private document: any
+  ) {
+    this.fragmentSub = this.route.fragment.subscribe((fragment) => { this.scrollTo(fragment); });
   }
 
-  private scrollTo(fragment: string): void {
+  ngOnDestroy (): void {
+    if (this.fragmentSub) { this.fragmentSub.unsubscribe(); }
+  }
+
+  private scrollTo (fragment: string): void {
     try {
       if (!!fragment) {
-        const elements = document.getElementById(fragment);
-        elements.scrollIntoView();
+        const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
+          document: this.document,
+          pageScrollEasingLogic: myEasing,
+          scrollTarget: `#${fragment}`
+        });
+        this.pageScrollService.start(pageScrollInstance);
       } else {
-        const elements = document.getElementById(this.pageTop);
-        elements.scrollIntoView();
+        const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
+          document: this.document,
+          pageScrollEasingLogic: myEasing,
+          scrollTarget: `#${this.pageTop}`
+        });
+        this.pageScrollService.start(pageScrollInstance);
       }
     } catch (e) {
       /* console.log(e); */
