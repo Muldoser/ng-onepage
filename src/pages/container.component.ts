@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   <op-header>
     <op-title tappable (click)="goToHome()">{{ 'App.Title' | translate }}</op-title>
 
-    <op-menu>
+    <op-menu [open]="menuOpen" (openClick)="toggleMenu($event)">
       <op-menu-item tappable (click)="goToExample1()">{{ 'Menu.Example1' | translate }}</op-menu-item>
       <op-menu-item tappable (click)="goToExample2()">{{ 'Menu.Example2' | translate }}</op-menu-item>
     </op-menu>
@@ -17,18 +17,26 @@ import { Router } from '@angular/router';
   `
 })
 export class ContainerComponent {
-  
+  public menuOpen: boolean = false;
+
   constructor (private router: Router) {}
 
+  public toggleMenu (open: boolean): void {
+    this.menuOpen = !open;
+  }
+
   public goToHome (): void {
-    this.router.navigate([])
+    this.menuOpen = false;
+    this.router.navigate([]);
   }
 
   public goToExample1 (): void {
-    this.router.navigate([], {fragment: 'Example1'})
+    this.menuOpen = false;
+    this.router.navigate([], {fragment: 'Example1'});
   }
-  
+
   public goToExample2 (): void {
-    this.router.navigate([], {fragment: 'Example2'})
+    this.menuOpen = false;
+    this.router.navigate([], {fragment: 'Example2'});
   }
 }
