@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'op-variables';
+@import '../../node_modules/font-awesome/scss/font-awesome';
+
+body {
+  @include default-font;
+  margin: 0;
+}

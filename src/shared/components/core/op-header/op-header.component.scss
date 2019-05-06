@@ -1,0 +1,17 @@
+@import 'op-variables';
+
+:host {
+  @include flex(row nowrap, space-between, center);
+  @include transition-padding-bottom-top;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $op-header-height;
+  padding: $op-header-padding 0;
+
+  @media(max-width: 600px) {
+    @include transition-padding-bottom-top;
+    padding: 0;
+  }
+}

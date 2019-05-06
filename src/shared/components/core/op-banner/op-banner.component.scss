@@ -1,0 +1,6 @@
+@import 'op-variables';
+
+:host {
+  @include flex(row nowrap, center, center);
+  height: $op-banner-height;
+}

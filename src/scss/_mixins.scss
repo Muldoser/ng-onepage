@@ -1,0 +1,22 @@
+/*****************
+ * Useful mixins *
+ *****************/
+@mixin flex($flow: 'row nowrap', $justify: 'center', $align: 'center') {
+  display: flex;
+  flex-flow: $flow;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin transition-padding-bottom-top {
+  -webkit-transition: padding-top 0.3s, padding-bottom 0.3s;
+  -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
+  transition: padding-top 0.3s, padding-bottom 0.3s;
+}
+
+@mixin transition-max-height() {
+  -webkit-transition: max-height 500ms ease;
+  -moz-transition: max-height 500ms ease;
+  -o-transition: max-height 500ms ease;
+  transition: max-height 500ms ease;
+}

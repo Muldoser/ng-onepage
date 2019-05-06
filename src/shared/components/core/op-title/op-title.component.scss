@@ -1,0 +1,8 @@
+@import 'op-variables';
+
+:host {
+  @include font-L;
+  &:hover {
+    cursor: pointer;
+  }
+}
