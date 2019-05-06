@@ -1,30 +1,9 @@
-import { Component, ElementRef, Inject, OnDestroy } from '@angular/core';
+import { Component, Inject, OnDestroy } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute  } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import { EasingLogic, PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
-
-/**
- * Easing
- * @param t current time
- * @param b beginning value
- * @param c change In value
- * @param d duration
- */
-const myEasing: EasingLogic = {
-  ease: (t: number, b: number, c: number, d: number): number => {
-    // Sinusoidal easing in
-    /* return -c * Math.cos(t / d * (Math.PI / 2)) + c + b; */
-
-    // Quadratic easing in
-    /* t /= d;
-    return c * t * t + b; */
-
-    // Quintic easing in
-    t /= d;
-    return c * t * t * t * t * t + b;
-  }
-};
+import { ReplaySubject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { PageScrollService } from 'ngx-page-scroll-core';
 
 @Component({
   selector: 'op-home',
@@ -37,50 +16,42 @@ const myEasing: EasingLogic = {
   </op-section>
 
   <op-section id="Example2">
-  {{ 'Example2.Title' | translate }}
+    {{ 'Example2.Title' | translate }}
   </op-section>
 
   <op-footer>
-  {{ 'Footer.Copyright' | translate }}
+    {{ 'Footer.Copyright' | translate }}
   </op-footer>
   `
 })
 export class HomePageComponent implements OnDestroy {
   public pageTop: string = 'pageTop';
 
-  private fragmentSub: Subscription;
+  private unsubscribe$: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor (
     private route: ActivatedRoute,
     private pageScrollService: PageScrollService,
     @Inject(DOCUMENT) private document: any
   ) {
-    this.fragmentSub = this.route.fragment.subscribe((fragment) => { this.scrollTo(fragment); });
+    this.route.fragment
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((fragment: string) => { this.scrollTo(fragment); });
   }
 
   ngOnDestroy (): void {
-    if (this.fragmentSub) { this.fragmentSub.unsubscribe(); }
+    this.unsubscribe$.next(true);
+    this.unsubscribe$.complete();
   }
 
-  private scrollTo (fragment: string): void {
+  private scrollTo (fragment: string = this.pageTop): void {
     try {
-      if (!!fragment) {
-        const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
-          document: this.document,
-          pageScrollEasingLogic: myEasing,
-          scrollTarget: `#${fragment}`
-        });
-        this.pageScrollService.start(pageScrollInstance);
-      } else {
-        const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
-          document: this.document,
-          pageScrollEasingLogic: myEasing,
-          scrollTarget: `#${this.pageTop}`
-        });
-        this.pageScrollService.start(pageScrollInstance);
-      }
+      this.pageScrollService.scroll({
+        document: this.document,
+        scrollTarget: `#${fragment}`
+      });
     } catch (e) {
-      /* console.log(e); */
+      /* console.error('Error during scroll: ', e); */
     }
   }
 }

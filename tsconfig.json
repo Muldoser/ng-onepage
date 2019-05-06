@@ -3,10 +3,23 @@
     "allowSyntheticDefaultImports": true,
     "declaration": false,
     "baseUrl": "src",
+    "importHelpers": true,
     "paths": {
-      "@components/*": ["shared/components/*"],
-      "@pages/*": ["pages/*"],
-      "@styles/*": ["scss/*"],
+      "@components/*": [
+        "shared/components/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@shared/*": [
+        "shared/*"
+      ],
+      "@styles/*": [
+        "scss/*"
+      ],
+      "core-js/es7/reflect": [
+        "../node_modules/core-js/proposals/reflect-metadata"
+      ]
     },
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -23,7 +36,8 @@
     ],
     "types": [
       "node"
-    ]
+    ],
+    "module": "es2015"
   },
   "include": [
     "src/**/*.ts"

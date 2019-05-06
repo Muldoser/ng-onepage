@@ -1,5 +1,5 @@
 import { Component, Optional } from '@angular/core';
-import { OpMenuComponent } from '@components/op-menu/op-menu.component';
+import { OpMenuComponent } from '../op-menu.component';
 
 @Component({
   selector: 'op-menu-item',

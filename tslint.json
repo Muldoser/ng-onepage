@@ -98,7 +98,6 @@
     "import-blacklist": [
       true,
       "lodash",
-      "rxjs",
       "rxjs/Rx",
       "underscore"
     ],
