@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { HomePageComponent } from './home.component';
-import { OpComponentsModule } from '@components/op-components.module';
+import { OpComponentsModule } from '@components/core';
 import { TranslateModule } from '@ngx-translate/core';
 
 const components = [

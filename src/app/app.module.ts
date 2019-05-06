@@ -7,8 +7,9 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 import { AppComponent } from './app.component';
-import { OpComponentsModule } from '@components/op-components.module';
+import { OpComponentsModule } from '@components/core';
 import { PagesModule } from '@pages/pages.module';
+import { OpEeasing } from '@shared/scroll';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -18,10 +19,13 @@ import { PagesModule } from '@pages/pages.module';
     AppRoutingModule,
     OpComponentsModule,
     PagesModule,
-    NgxPageScrollCoreModule.forRoot(/* { custom settings here  } */),
-          NgxPageScrollModule,
-          TranslateModule.forRoot()
-  ]       ,
-          providers: []
+    NgxPageScrollCoreModule.forRoot({
+      /* custom settings here  */
+      easingLogic: OpEeasing.quintic
+    }),
+    NgxPageScrollModule,
+    TranslateModule.forRoot()
+  ],
+  providers: []
 })
 export class AppModule { }
