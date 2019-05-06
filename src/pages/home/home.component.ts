@@ -1,8 +1,8 @@
 import { Component, ElementRef, Inject, OnDestroy } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute  } from '@angular/router';
-import { Subscription } from 'rxjs/Subscription';
-import { EasingLogic, PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
+import { Subscription } from 'rxjs';
+import { EasingLogic, PageScrollInstance, PageScrollService } from 'ngx-page-scroll-core';
 
 /**
  * Easing
@@ -11,19 +11,17 @@ import { EasingLogic, PageScrollInstance, PageScrollService } from 'ngx-page-scr
  * @param c change In value
  * @param d duration
  */
-const myEasing: EasingLogic = {
-  ease: (t: number, b: number, c: number, d: number): number => {
-    // Sinusoidal easing in
-    /* return -c * Math.cos(t / d * (Math.PI / 2)) + c + b; */
+const myEasing: EasingLogic =  (t: number, b: number, c: number, d: number): number => {
+  // Sinusoidal easing in
+  /* return -c * Math.cos(t / d * (Math.PI / 2)) + c + b; */
 
-    // Quadratic easing in
-    /* t /= d;
-    return c * t * t + b; */
+  // Quadratic easing in
+  /* t /= d;
+  return c * t * t + b; */
 
-    // Quintic easing in
-    t /= d;
-    return c * t * t * t * t * t + b;
-  }
+  // Quintic easing in
+  t /= d;
+  return c * t * t * t * t * t + b;
 };
 
 @Component({
@@ -65,19 +63,17 @@ export class HomePageComponent implements OnDestroy {
   private scrollTo (fragment: string): void {
     try {
       if (!!fragment) {
-        const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
+        this.pageScrollService.scroll({
           document: this.document,
-          pageScrollEasingLogic: myEasing,
+          easingLogic: myEasing,
           scrollTarget: `#${fragment}`
         });
-        this.pageScrollService.start(pageScrollInstance);
       } else {
-        const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
+        this.pageScrollService.scroll({
           document: this.document,
-          pageScrollEasingLogic: myEasing,
+          easingLogic: myEasing,
           scrollTarget: `#${this.pageTop}`
         });
-        this.pageScrollService.start(pageScrollInstance);
       }
     } catch (e) {
       /* console.log(e); */
