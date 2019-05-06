@@ -4,6 +4,13 @@ import { ActivatedRoute  } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { EasingLogic, PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
 
+/**
+ * Easing
+ * @param t current time
+ * @param b beginning value
+ * @param c change In value
+ * @param d duration
+ */
 const myEasing: EasingLogic = {
   ease: (t: number, b: number, c: number, d: number): number => {
     // Sinusoidal easing in
