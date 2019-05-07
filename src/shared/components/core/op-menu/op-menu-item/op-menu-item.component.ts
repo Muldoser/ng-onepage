@@ -1,7 +1,8 @@
-import { Component, Optional } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Optional } from '@angular/core';
 import { OpMenuComponent } from '../op-menu.component';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'op-menu-item',
   styleUrls: ['./op-menu-item.component.scss'],
   template: `

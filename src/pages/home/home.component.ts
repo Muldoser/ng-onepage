@@ -1,4 +1,4 @@
-import { Component, Inject, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute  } from '@angular/router';
 import { ReplaySubject } from 'rxjs';
@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { PageScrollService } from 'ngx-page-scroll-core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'op-home',
   styleUrls: ['./home.component.scss'],
   template: `

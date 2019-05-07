@@ -1,6 +1,7 @@
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
 @Component({
+  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'op-menu',
   styleUrls: ['./op-menu.component.scss'],
   template: `
